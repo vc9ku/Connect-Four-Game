@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
+:root {
+  --background-color: #5c2dd5;
+}
+
+* {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+.hidden {
+  display: none;
+}
+
+.grid-wrapper-game-menu {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game-menu {
+  margin-top: 56px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.game-menu-button {
+  padding: 10px 20px 10px 20px;
+  line-height: 20.42px;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 20px;
+  background-color: var(--background-color);
+  border: solid transparent;
+  color: white;
+  font-family: "Space Grotesk", serif;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr) 1.5fr;
+    width: 632px;
+    height: 584px;
+    background: url("../assets/grid.svg") no-repeat center/cover;
+    position: relative;
+}
+
+.grid-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.grid-cell img {
+    width: 80%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
