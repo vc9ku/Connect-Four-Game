@@ -1,9 +1,13 @@
-const $gridCells = document.querySelectorAll(".grid-cell")
-const $playGame = document.querySelector(".play-player-vs-cpu")
-const $gameParty = document.querySelector(".grid-wrapper-game-menu")
-const $choosingMenu = document.querySelector(".menu")
+const $gridCells = document.querySelectorAll(".grid-cell");
+const $playGame = document.querySelector(".play-player-vs-cpu");
+const $gameParty = document.querySelector(".grid-wrapper-game-menu");
+const $choosingMenu = document.querySelector(".menu");
 
-console.log($choosingMenu)
+console.log($choosingMenu);
+
+
+const gridCell = document.querySelector('.grid-cell[data-x="0"][data-y="0"]')
+gridCell.classList.add("tomato")
 
 const counterYellow = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="70px" height="75px" viewBox="0 0 70 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -26,7 +30,7 @@ const counterYellow = `<?xml version="1.0" encoding="UTF-8"?>
             </g>
         </g>
     </g>
-</svg>`
+</svg>`;
 
 const counterRed = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="70px" height="75px" viewBox="0 0 70 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -49,51 +53,79 @@ const counterRed = `<?xml version="1.0" encoding="UTF-8"?>
             </g>
         </g>
     </g>
-</svg>`
+</svg>`;
 
 let gameBoard = [
-    ["", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", ""]
-]
+  ["", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", ""],
+];
 
 // Game parameters
-let currentPlayer = "r"
+let currentPlayer = "r";
 
+console.log($playGame);
 
-console.log($playGame)
+$gridCells.forEach(function ($gridCell) {
+  $gridCell.addEventListener("click", function () {
+    const dataX = $gridCell.getAttribute("data-x");
+    const dataY = $gridCell.getAttribute("data-y");
 
-$gridCells.forEach(function($gridCell) {
-    $gridCell.addEventListener("click", function() {
-        const dataX = $gridCell.getAttribute("data-x")
-        const dataY = $gridCell.getAttribute("data-y")
-        gameBoard[dataX][dataY] = currentPlayer
+    for (let i = 6; i >= 0; i--) {
+      if (gameBoard[i][dataY] === "") {
+        console.log("C'est vide");
+
+        gameBoard[i][dataY] = currentPlayer
+        
         console.log(gameBoard)
-        if ($gridCell.hasChildNodes() === false) {
-        if (currentPlayer === "r") {
-            $gridCell.innerHTML = counterRed
-            currentPlayer = "y"
-        } else {
-            $gridCell.innerHTML = counterYellow
-            currentPlayer = "r"
-        }
-    }
-    })
-})
+        
+        return
 
+        // if (currentPlayer === "r") {
+        //   $gridCell.innerHTML = counterRed;
+        //   $gridCell.classList.add("taken");
+        //   currentPlayer = "y";
+        // } else {
+        //   $gridCell.innerHTML = counterYellow;
+        //   $gridCell.classList.add("taken");
+        //   currentPlayer = "r";
+        // }
+      } else {
+        console.log("C'est pas vide");
+      }
+    }
+  });
+});
+
+// $gridCells.forEach(function($gridCell) {
+//     $gridCell.addEventListener("click", function() {
+//         const dataX = $gridCell.getAttribute("data-x")
+//         const dataY = $gridCell.getAttribute("data-y")
+//         gameBoard[dataX][dataY] = currentPlayer
+//         console.log(gameBoard)
+//         if ($gridCell.hasChildNodes() === false) {
+//         if (currentPlayer === "r") {
+//             if ([dataY - 1].hasChildNodes() === true) {
+//                 $gridCell.innerHTML = counterRed
+//                 currentPlayer = "y"
+//             } else {
+//                 alert("Espace indisponible")
+//             }
+//         } else {
+//             $gridCell.innerHTML = counterYellow
+//             currentPlayer = "r"
+//         }
+//     }
+//     })
+// })
 
 // Get Player to the Game
 
-$playGame.addEventListener("click", function(e) {
-    $gameParty.classList.remove("hidden")
-    $choosingMenu.classList.add("hidden")
-})
-
-
-for (let i = 0; i < gameBoard.length; i--) {
-    
-}
+$playGame.addEventListener("click", function (e) {
+  $gameParty.classList.remove("hidden");
+  $choosingMenu.classList.add("hidden");
+});
