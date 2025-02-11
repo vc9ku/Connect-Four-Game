@@ -1,7 +1,7 @@
 const $gridCells = document.querySelectorAll(".grid-cell")
 const $playGame = document.querySelector(".play-player-vs-cpu")
 const $gameParty = document.querySelector(".grid-wrapper-game-menu")
-const $choosingMenu
+const $choosingMenu = document.querySelector(".menu")
 
 const counterYellow = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="70px" height="75px" viewBox="0 0 70 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -61,5 +61,5 @@ $gridCells.forEach(function($gridCell) {
 
 $playGame.addEventListener("click", function(e) {
     $gameParty.classList.remove("hidden")
-    
+    $choosingMenu.classList.add("hidden")
 })
