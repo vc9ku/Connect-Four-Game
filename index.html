@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/menu.css" />
     <title>Connect Four Game</title>
   </head>
   <body>
@@ -30,49 +30,61 @@
         <img src="./assets/logo.svg" alt="" />
         <button class="game-menu-button restart-button">Restart</button>
       </div>
-      <div class="grid-wrapper">
-        <div class="grid-cell" data-x="0" data-y="0"></div>
-        <div class="grid-cell" data-x="0" data-y="1"></div>
-        <div class="grid-cell" data-x="0" data-y="2"></div>
-        <div class="grid-cell" data-x="0" data-y="3"></div>
-        <div class="grid-cell" data-x="0" data-y="4"></div>
-        <div class="grid-cell" data-x="0" data-y="5"></div>
-        <div class="grid-cell" data-x="0" data-y="6"></div>
-        <div class="grid-cell" data-x="1" data-y="0"></div>
-        <div class="grid-cell" data-x="1" data-y="1"></div>
-        <div class="grid-cell" data-x="1" data-y="2"></div>
-        <div class="grid-cell" data-x="1" data-y="3"></div>
-        <div class="grid-cell" data-x="1" data-y="4"></div>
-        <div class="grid-cell" data-x="1" data-y="5"></div>
-        <div class="grid-cell" data-x="1" data-y="6"></div>
-        <div class="grid-cell" data-x="2" data-y="0"></div>
-        <div class="grid-cell" data-x="2" data-y="1"></div>
-        <div class="grid-cell" data-x="2" data-y="2"></div>
-        <div class="grid-cell" data-x="2" data-y="3"></div>
-        <div class="grid-cell" data-x="2" data-y="4"></div>
-        <div class="grid-cell" data-x="2" data-y="5"></div>
-        <div class="grid-cell" data-x="2" data-y="6"></div>
-        <div class="grid-cell" data-x="3" data-y="0"></div>
-        <div class="grid-cell" data-x="3" data-y="1"></div>
-        <div class="grid-cell" data-x="3" data-y="2"></div>
-        <div class="grid-cell" data-x="3" data-y="3"></div>
-        <div class="grid-cell" data-x="3" data-y="4"></div>
-        <div class="grid-cell" data-x="3" data-y="5"></div>
-        <div class="grid-cell" data-x="3" data-y="6"></div>
-        <div class="grid-cell" data-x="4" data-y="0"></div>
-        <div class="grid-cell" data-x="4" data-y="1"></div>
-        <div class="grid-cell" data-x="4" data-y="2"></div>
-        <div class="grid-cell" data-x="4" data-y="3"></div>
-        <div class="grid-cell" data-x="4" data-y="4"></div>
-        <div class="grid-cell" data-x="4" data-y="5"></div>
-        <div class="grid-cell" data-x="4" data-y="6"></div>
-        <div class="grid-cell" data-x="5" data-y="0"></div>
-        <div class="grid-cell" data-x="5" data-y="1"></div>
-        <div class="grid-cell" data-x="5" data-y="2"></div>
-        <div class="grid-cell" data-x="5" data-y="3"></div>
-        <div class="grid-cell" data-x="5" data-y="4"></div>
-        <div class="grid-cell" data-x="5" data-y="5"></div>
-        <div class="grid-cell" data-x="5" data-y="6"></div>
+      <div class="main">
+        <img src="./assets/you.svg" class="you-icon" alt="" />
+        <div class="game-win-player-count">
+          <p class="player">You</p>
+          <p><span class="player-counter">0</span></p>
+        </div>
+        <div class="grid-wrapper">
+          <div class="grid-cell" data-x="0" data-y="0"></div>
+          <div class="grid-cell" data-x="0" data-y="1"></div>
+          <div class="grid-cell" data-x="0" data-y="2"></div>
+          <div class="grid-cell" data-x="0" data-y="3"></div>
+          <div class="grid-cell" data-x="0" data-y="4"></div>
+          <div class="grid-cell" data-x="0" data-y="5"></div>
+          <div class="grid-cell" data-x="0" data-y="6"></div>
+          <div class="grid-cell" data-x="1" data-y="0"></div>
+          <div class="grid-cell" data-x="1" data-y="1"></div>
+          <div class="grid-cell" data-x="1" data-y="2"></div>
+          <div class="grid-cell" data-x="1" data-y="3"></div>
+          <div class="grid-cell" data-x="1" data-y="4"></div>
+          <div class="grid-cell" data-x="1" data-y="5"></div>
+          <div class="grid-cell" data-x="1" data-y="6"></div>
+          <div class="grid-cell" data-x="2" data-y="0"></div>
+          <div class="grid-cell" data-x="2" data-y="1"></div>
+          <div class="grid-cell" data-x="2" data-y="2"></div>
+          <div class="grid-cell" data-x="2" data-y="3"></div>
+          <div class="grid-cell" data-x="2" data-y="4"></div>
+          <div class="grid-cell" data-x="2" data-y="5"></div>
+          <div class="grid-cell" data-x="2" data-y="6"></div>
+          <div class="grid-cell" data-x="3" data-y="0"></div>
+          <div class="grid-cell" data-x="3" data-y="1"></div>
+          <div class="grid-cell" data-x="3" data-y="2"></div>
+          <div class="grid-cell" data-x="3" data-y="3"></div>
+          <div class="grid-cell" data-x="3" data-y="4"></div>
+          <div class="grid-cell" data-x="3" data-y="5"></div>
+          <div class="grid-cell" data-x="3" data-y="6"></div>
+          <div class="grid-cell" data-x="4" data-y="0"></div>
+          <div class="grid-cell" data-x="4" data-y="1"></div>
+          <div class="grid-cell" data-x="4" data-y="2"></div>
+          <div class="grid-cell" data-x="4" data-y="3"></div>
+          <div class="grid-cell" data-x="4" data-y="4"></div>
+          <div class="grid-cell" data-x="4" data-y="5"></div>
+          <div class="grid-cell" data-x="4" data-y="6"></div>
+          <div class="grid-cell" data-x="5" data-y="0"></div>
+          <div class="grid-cell" data-x="5" data-y="1"></div>
+          <div class="grid-cell" data-x="5" data-y="2"></div>
+          <div class="grid-cell" data-x="5" data-y="3"></div>
+          <div class="grid-cell" data-x="5" data-y="4"></div>
+          <div class="grid-cell" data-x="5" data-y="5"></div>
+          <div class="grid-cell" data-x="5" data-y="6"></div>
+        </div>
+        <img src="./assets/cpu.svg" class="cpu-icon" alt="" />
+        <div class="game-win-cpu-count">
+          <p class="cpu">CPU</p>
+          <p class="cpu-counter">0</p>
+        </div>
       </div>
     </div>
   </body>
