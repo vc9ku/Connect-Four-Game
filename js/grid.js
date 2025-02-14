@@ -75,14 +75,13 @@ function updateBoard() {
   }
 }
 
-let playerScore = 0; // Red player's score
-let cpuScore = 0;    // Yellow CPU's score
+let playerScore = 0;
+let cpuScore = 0;
 
 function checkWin() {
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < 7; j++) {
       if (gameBoard[i][j] !== "") {
-        // Check horizontal
         if (j <= 3 && gameBoard[i][j] === gameBoard[i][j + 1] && gameBoard[i][j] === gameBoard[i][j + 2] && gameBoard[i][j] === gameBoard[i][j + 3]) {
           return gameBoard[i][j];
         }
@@ -90,27 +89,25 @@ function checkWin() {
         if (i <= 2 && gameBoard[i][j] === gameBoard[i + 1][j] && gameBoard[i][j] === gameBoard[i + 2][j] && gameBoard[i][j] === gameBoard[i + 3][j]) {
           return gameBoard[i][j];
         }
-        // Check diagonal (top-left to bottom-right)
         if (i <= 2 && j <= 3 && gameBoard[i][j] === gameBoard[i + 1][j + 1] && gameBoard[i][j] === gameBoard[i + 2][j + 2] && gameBoard[i][j] === gameBoard[i + 3][j + 3]) {
           return gameBoard[i][j];
         }
-        // Check diagonal (bottom-left to top-right)
         if (i >= 3 && j <= 3 && gameBoard[i][j] === gameBoard[i - 1][j + 1] && gameBoard[i][j] === gameBoard[i - 2][j + 2] && gameBoard[i][j] === gameBoard[i - 3][j + 3]) {
           return gameBoard[i][j];
         }
       }
     }
   }
-  return null; // No winner yet
+  return null;
 }
 
 function updateScores(winner) {
   if (winner === "r") {
-    playerScore++; // Increment Red player's score
-    document.querySelector(".player-counter").textContent = playerScore; // Update UI
+    playerScore++;
+    document.querySelector(".player-counter").textContent = playerScore;
   } else if (winner === "y") {
-    cpuScore++; // Increment Yellow CPU's score
-    document.querySelector(".cpu-counter").textContent = cpuScore; // Update UI
+    cpuScore++;
+    document.querySelector(".cpu-counter").textContent = cpuScore;
   }
 }
 
@@ -138,9 +135,9 @@ $gridCells.forEach(function ($gridCell) {
 
         const winner = checkWin();
         if (winner) {
-          updateScores(winner); // Update scores
+          updateScores(winner);
           alert(`Player ${winner === "r" ? "Red" : "Yellow"} wins!`);
-          resetGame(); // Reset the game after a win
+          resetGame();
           return;
         }
 
