@@ -2,6 +2,9 @@ const $gridCells = document.querySelectorAll(".grid-cell");
 const $playGame = document.querySelector(".play-player-vs-cpu");
 const $gameParty = document.querySelector(".grid-wrapper-game-menu");
 const $choosingMenu = document.querySelector(".menu");
+const $cpuScore = document.querySelector(".cpu-counter")
+const $playerScore = document.querySelector(".player-counter")
+
 
 const counterYellow = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="70px" height="75px" viewBox="0 0 70 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -85,7 +88,6 @@ function checkWin() {
         if (j <= 3 && gameBoard[i][j] === gameBoard[i][j + 1] && gameBoard[i][j] === gameBoard[i][j + 2] && gameBoard[i][j] === gameBoard[i][j + 3]) {
           return gameBoard[i][j];
         }
-        // Check vertical
         if (i <= 2 && gameBoard[i][j] === gameBoard[i + 1][j] && gameBoard[i][j] === gameBoard[i + 2][j] && gameBoard[i][j] === gameBoard[i + 3][j]) {
           return gameBoard[i][j];
         }
@@ -104,10 +106,10 @@ function checkWin() {
 function updateScores(winner) {
   if (winner === "r") {
     playerScore++;
-    document.querySelector(".player-counter").textContent = playerScore;
+    $playerScore.innerHTML = playerScore
   } else if (winner === "y") {
     cpuScore++;
-    document.querySelector(".cpu-counter").textContent = cpuScore;
+    $cpuScore.innerHTML = cpuScore
   }
 }
 
@@ -136,7 +138,7 @@ $gridCells.forEach(function ($gridCell) {
         const winner = checkWin();
         if (winner) {
           updateScores(winner);
-          alert(`Player ${winner === "r" ? "Red" : "Yellow"} wins!`);
+          console.log(`Player ${winner === "r" ? "Red" : "Yellow"} wins!`);
           resetGame();
           return;
         }
