@@ -5,7 +5,6 @@ const $choosingMenu = document.querySelector(".menu");
 const $cpuScore = document.querySelector(".cpu-counter")
 const $playerScore = document.querySelector(".player-counter")
 
-
 const counterYellow = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="70px" height="75px" viewBox="0 0 70 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>counter-yellow-large</title>
@@ -81,26 +80,63 @@ function updateBoard() {
 let playerScore = 0;
 let cpuScore = 0;
 
-function checkWin() {
-  for (let i = 0; i < 6; i++) {
-    for (let j = 0; j < 7; j++) {
-      if (gameBoard[i][j] !== "") {
-        if (j <= 3 && gameBoard[i][j] === gameBoard[i][j + 1] && gameBoard[i][j] === gameBoard[i][j + 2] && gameBoard[i][j] === gameBoard[i][j + 3]) {
-          return gameBoard[i][j];
-        }
-        if (i <= 2 && gameBoard[i][j] === gameBoard[i + 1][j] && gameBoard[i][j] === gameBoard[i + 2][j] && gameBoard[i][j] === gameBoard[i + 3][j]) {
-          return gameBoard[i][j];
-        }
-        if (i <= 2 && j <= 3 && gameBoard[i][j] === gameBoard[i + 1][j + 1] && gameBoard[i][j] === gameBoard[i + 2][j + 2] && gameBoard[i][j] === gameBoard[i + 3][j + 3]) {
-          return gameBoard[i][j];
-        }
-        if (i >= 3 && j <= 3 && gameBoard[i][j] === gameBoard[i - 1][j + 1] && gameBoard[i][j] === gameBoard[i - 2][j + 2] && gameBoard[i][j] === gameBoard[i - 3][j + 3]) {
-          return gameBoard[i][j];
-        }
+function checkWin(board) {
+  const rows = 6;
+  const cols = 7;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c <= cols - 4; c++) {
+      if (
+        board[r][c] !== "" &&
+        board[r][c] === board[r][c + 1] &&
+        board[r][c] === board[r][c + 2] &&
+        board[r][c] === board[r][c + 3]
+      ) {
+        return true;
       }
     }
   }
-  return null;
+
+  for (let c = 0; c < cols; c++) {
+    for (let r = 0; r <= rows - 4; r++) {
+      if (
+        board[r][c] !== "" &&
+        board[r][c] === board[r + 1][c] &&
+        board[r][c] === board[r + 2][c] &&
+        board[r][c] === board[r + 3][c]
+      ) {
+        return true;
+      }
+    }
+  }
+
+  for (let r = 0; r <= rows - 4; r++) {
+    for (let c = 0; c <= cols - 4; c++) {
+      if (
+        board[r][c] !== "" &&
+        board[r][c] === board[r + 1][c + 1] &&
+        board[r][c] === board[r + 2][c + 2] &&
+        board[r][c] === board[r + 3][c + 3]
+      ) {
+        return true;
+      }
+    }
+  }
+
+  for (let r = 0; r <= rows - 4; r++) {
+    for (let c = 3; c < cols; c++) {
+      if (
+        board[r][c] !== "" &&
+        board[r][c] === board[r + 1][c - 1] &&
+        board[r][c] === board[r + 2][c - 2] &&
+        board[r][c] === board[r + 3][c - 3]
+      ) {
+        return true;
+      }
+    }
+  }
+
+  return false;
 }
 
 function updateScores(winner) {
@@ -135,10 +171,9 @@ $gridCells.forEach(function ($gridCell) {
         gameBoard[i][dataY] = currentPlayer;
         updateBoard();
 
-        const winner = checkWin();
-        if (winner) {
-          updateScores(winner);
-          console.log(`Player ${winner === "r" ? "Red" : "Yellow"} wins!`);
+        if (checkWin(gameBoard)) {
+          updateScores(currentPlayer);
+          console.log(`Player ${currentPlayer === "r" ? "Red" : "Yellow"} wins!`);
           resetGame();
           return;
         }
