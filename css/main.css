@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 :root {
-  --background-color: #5c2dd5;
+  --background-color: #7945FF;
   --menu-color: #7945FF;
   --pink: #FD6687;
   --yellow: #FFCE67;
@@ -14,7 +14,7 @@
 
 body {
   min-height: 100vh;
-  background-color: var(--background-color);
+  background-color: #7945FF;
 }
 
 .grid-wrapper-game-menu {
@@ -38,15 +38,23 @@ body {
 }
 
 .game-menu-button {
+  text-transform: uppercase;
   padding: 10px 20px 10px 20px;
   line-height: 20.42px;
   font-weight: 700;
   font-size: 16px;
   border-radius: 20px;
-  background-color: var(--background-color);
+  background-color: #5C2DD5;
   border: solid transparent;
   color: white;
   font-family: "Space Grotesk", serif;
+  cursor: pointer;
+  margin-right: 130px;
+  margin-left: 130px;
+}
+
+.game-menu-button:hover {
+  background-color: #FD6687;
 }
 
 .grid-wrapper {

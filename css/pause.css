@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: #7945FF;
-    width: 33%;
+    width: 28%;
     padding: 50px 40px 50px 40px;
     position: absolute;
     border-radius: 40px;
@@ -22,8 +22,36 @@
     font-size: 56px;
     line-height: 71.46px;
     margin-bottom: 44px;
+    text-transform: uppercase;
 }
 
+.pause-button {
+    width: 90%;
+    padding-top: 21px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30.62px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 0px 0px;
+    border: solid 3px;
+    text-transform: uppercase;
+}
+
+.pause-button:hover {
+    box-shadow: 0px 10px 0px 0px #5C2DD5;
+    border: solid 3px #5C2DD5;
+    cursor: pointer;
+}
+
+.pause-menu-quit-game {
+    background-color: #FD6687;
+    color: white;
+    box-shadow: black 0px 10px 0px 0px;
+    border: solid 3px black;
+}
 
 .hidden {
     display: none;

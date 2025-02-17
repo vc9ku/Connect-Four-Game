@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/menu.css" />
     <link rel="stylesheet" href="./css/pause.css" />
+    <link rel="stylesheet" href="./css/player-win.css" />
     <title>Connect Four Game</title>
   </head>
   <body>
@@ -88,11 +89,18 @@
         </div>
       </div>
     </div>
-    <div class="pause-menu">
+    <div class="pause-menu hidden">
       <p class="pause-title">Pause</p>
-      <button class="pause-menu-continue-game">Continue Game</button>
-      <button class="pause-menu-restart-game">Restart</button>
-      <button class="pause-menu-quit-game">Quit Game</button>
+      <button class="pause-button pause-menu-continue-game">
+        Continue Game
+      </button>
+      <button class="pause-button pause-menu-restart-game">Restart</button>
+      <button class="pause-button pause-menu-quit-game">Quit Game</button>
+    </div>
+    <div class="player-win-container hidden">
+      <p class="winner-player-name">Player 1</p>
+      <p class="wins">WINS</p>
+      <button class="play-again-win-menu">Play again</button>
     </div>
   </body>
   <script src="./js/grid.js"></script>

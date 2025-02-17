@@ -1,0 +1,52 @@
+.player-win-container {
+    left: 845px;
+    bottom: 65px;
+    position: absolute;
+    border-radius: 20px;
+    border: solid 3px;
+    box-shadow: 0px 10px 0px 0px black;
+    width: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Space Grotesk", serif;
+    padding: 17px 73px 17px 73px;
+    text-transform: uppercase;
+    background-color: white;
+    text-align: center;
+}
+
+.winner-player-name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20.42px;
+}
+
+.wins {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 71.46px;
+}
+
+.play-again-win-menu {
+    background-color: #5C2DD5;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    width: 130px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20.42px;
+    text-transform: uppercase;
+}
+
+.play-again-win-menu:hover {
+    background-color: #FD6687;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}

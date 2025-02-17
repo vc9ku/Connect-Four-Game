@@ -4,6 +4,15 @@ const $gameParty = document.querySelector(".grid-wrapper-game-menu");
 const $choosingMenu = document.querySelector(".menu");
 const $cpuScore = document.querySelector(".cpu-counter")
 const $playerScore = document.querySelector(".player-counter")
+const $backToMenuButton = document.querySelector(".game-menu-button")
+const $pauseMenu = document.querySelector(".pause-menu")
+const $pauseMenuContinueGame = document.querySelector(".pause-menu-continue-game")
+const $restartGame = document.querySelector(".restart-button")
+const $pauseMenuRestartGame = document.querySelector(".pause-menu-restart-game")
+const $pauseMenuQuitGame = document.querySelector(".pause-menu-quit-game")
+const $winMenu = document.querySelector(".player-win-container")
+const $playAgainWinMenu = document.querySelector(".play-again-win-menu")
+const $winnerPlayerName = document.querySelector(".winner-player-name")
 
 const counterYellow = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="70px" height="75px" viewBox="0 0 70 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -174,17 +183,82 @@ $gridCells.forEach(function ($gridCell) {
         if (checkWin(gameBoard)) {
           updateScores(currentPlayer);
           console.log(`Player ${currentPlayer === "r" ? "Red" : "Yellow"} wins!`);
-          resetGame();
+          $winnerPlayerName.innerHTML = currentPlayer === "r" ? "Red" : "Yellow"
+          $winMenu.classList.remove("hidden")
           return;
         }
 
         currentPlayer = currentPlayer === "r" ? "y" : "r";
         console.log(gameBoard);
-        break;
+        return;
       }
     }
   });
 });
+
+$playAgainWinMenu.addEventListener("click", function () {
+  $winMenu.classList.add("hidden")
+  resetGame()
+  return;
+})
+
+$backToMenuButton.addEventListener("click", function () {
+  $pauseMenu.classList.remove("hidden")
+})
+
+$pauseMenuContinueGame.addEventListener("click", function () {
+  $pauseMenu.classList.add("hidden")
+})
+
+$restartGame.addEventListener("click", function () {
+  gameBoard = [
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+  ];
+  updateBoard();
+
+  $playerScore.innerHTML = 0
+  $cpuScore.innerHTML = 0
+  alert("Gmame restarted!")
+})
+
+$pauseMenuRestartGame.addEventListener("click", function (e) {
+  gameBoard = [
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+  ];
+  updateBoard();
+
+  $playerScore.innerHTML = 0
+  $cpuScore.innerHTML = 0
+  alert("Gmame restarted!")
+  $pauseMenu.classList.add("hidden")
+})
+
+$pauseMenuQuitGame.addEventListener("click", function (e) {
+  $gameParty.classList.add("hidden")
+  gameBoard = [
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+  ];
+  updateBoard();
+  $pauseMenu.classList.add("hidden")
+  $choosingMenu.classList.remove("hidden")
+  $playerScore.innerHTML = 0
+  $cpuScore.innerHTML = 0
+})
 
 $playGame.addEventListener("click", function (e) {
   $gameParty.classList.remove("hidden");
