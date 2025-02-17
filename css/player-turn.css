@@ -1,0 +1,23 @@
+.players-turns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    left: 845px;
+    bottom: 130px;
+    position: absolute;
+    border-radius: 20px;
+    border: solid 3px;
+    width: 191px;
+    height: 150px;
+    font-family: "Space Grotesk", serif;
+    text-transform: uppercase;
+    background-image: url(../assets/marker-yellow.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}

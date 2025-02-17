@@ -14,7 +14,7 @@
 
 body {
   min-height: 100vh;
-  background-color: #7945FF;
+  background-color: #5c2dd5;
 }
 
 .grid-wrapper-game-menu {
@@ -44,7 +44,7 @@ body {
   font-weight: 700;
   font-size: 16px;
   border-radius: 20px;
-  background-color: #5C2DD5;
+  background-color: rgba(121, 69, 255, 0.5);
   border: solid transparent;
   color: white;
   font-family: "Space Grotesk", serif;
