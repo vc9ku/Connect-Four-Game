@@ -53,8 +53,8 @@ body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr) 1.5fr;
-    width: 532px;
-    height: 484px;
+    width: 600px;
+    height: 555px;
     background: url("../assets/grid.svg") no-repeat center/cover;
     position: relative;
 }
@@ -144,14 +144,14 @@ body {
 
 .you-icon {
   position: absolute;
-  top: 300px;
-  left: 545px;
+  top: 330px;
+  left: 512px;
   z-index: 1;
 }
 
 .cpu-icon {
   position: absolute;
-  top: 300px;
-  right: 542px;
+  top: 330px;
+  right: 510px;
   z-index: 1;
 }
