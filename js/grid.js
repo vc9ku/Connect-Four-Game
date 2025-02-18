@@ -273,6 +273,7 @@ $pauseMenuQuitGame.addEventListener("click", function (e) {
   updateBoard();
   $pauseMenu.classList.add("hidden")
   $choosingMenu.classList.remove("hidden")
+  $playersTurnsBlock.classList.add("hidden")
   $playerScore.innerHTML = 0
   $cpuScore.innerHTML = 0
 })
