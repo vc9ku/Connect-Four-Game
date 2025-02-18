@@ -13,6 +13,8 @@ const $pauseMenuQuitGame = document.querySelector(".pause-menu-quit-game")
 const $winMenu = document.querySelector(".player-win-container")
 const $playAgainWinMenu = document.querySelector(".play-again-win-menu")
 const $winnerPlayerName = document.querySelector(".winner-player-name")
+const $playersTurnsBlock = document.querySelector(".players-turns")
+const $playerTurnsTitle = document.querySelector(".players-turns-title")
 
 const counterYellow = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="70px" height="75px" viewBox="0 0 70 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -171,6 +173,17 @@ function resetGame() {
   updateBoard();
 }
 
+function updateTurnIndicator() {
+  $playersTurnsBlock.style.backgroundColor = currentPlayer === "r" ? "#FD6687" : "#FFCE67";
+  $playerTurnsTitle.innerHTML = `Player ${currentPlayer === "r" ? "Red" : "Yellow"} turn`;
+  if(currentPlayer === "y") {
+    $playersTurnsBlock.style.color = "#000"
+  } else {
+    $playersTurnsBlock.style.color = "#fff"
+  }
+}
+
+
 $gridCells.forEach(function ($gridCell) {
   $gridCell.addEventListener("click", function () {
     const dataY = $gridCell.getAttribute("data-y");
@@ -185,10 +198,11 @@ $gridCells.forEach(function ($gridCell) {
           console.log(`Player ${currentPlayer === "r" ? "Red" : "Yellow"} wins!`);
           $winnerPlayerName.innerHTML = currentPlayer === "r" ? "Red" : "Yellow"
           $winMenu.classList.remove("hidden")
+          $playersTurnsBlock.classList.add("hidden")
           return;
         }
-
         currentPlayer = currentPlayer === "r" ? "y" : "r";
+        updateTurnIndicator();
         console.log(gameBoard);
         return;
       }
@@ -196,9 +210,12 @@ $gridCells.forEach(function ($gridCell) {
   });
 });
 
+updateTurnIndicator();
+
 $playAgainWinMenu.addEventListener("click", function () {
   $winMenu.classList.add("hidden")
   resetGame()
+  $playersTurnsBlock.classList.remove("hidden")
   return;
 })
 
@@ -260,7 +277,12 @@ $pauseMenuQuitGame.addEventListener("click", function (e) {
   $cpuScore.innerHTML = 0
 })
 
+
+
+
+
 $playGame.addEventListener("click", function (e) {
   $gameParty.classList.remove("hidden");
   $choosingMenu.classList.add("hidden");
+  $playersTurnsBlock.classList.remove("hidden")
 });
