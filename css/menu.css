@@ -45,6 +45,12 @@
     line-height: 30.62px;
   }
   
+  .style-button-menu:hover {
+    box-shadow: 0px 10px 0px 0px #5C2DD5;
+    border: solid 3px #5C2DD5;
+    cursor: pointer;
+  }
+
   .play-player-vs-cpu {
     background-color: var(--pink);
     color: white;

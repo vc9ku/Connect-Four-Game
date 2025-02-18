@@ -3,19 +3,37 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    left: 845px;
-    bottom: 130px;
+    left: 865px;
+    bottom: 90px;
     position: absolute;
-    border-radius: 20px;
+    border-radius: 50% 20% / 10% 40%;
     border: solid 3px;
     width: 191px;
     height: 150px;
     font-family: "Space Grotesk", serif;
-    text-transform: uppercase;
-    background-image: url(../assets/marker-yellow.svg);
     background-size: contain;
     background-repeat: no-repeat;
     text-align: center;
+    background-color: #FD6687;
+    border: solid 3px black;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 16px;
+    text-align: center;
+    font-weight: 700;
+    box-shadow: 0px 10px 0px 0px black;
+    transition: all 0.3s ease;
+}
+
+.players-turns-title {
+    font-size: 16px;
+    line-height: 20.42px;
+    text-transform: uppercase;
+}
+
+.players-turns-timer {
+    font-size: 56px;
+    line-height: 71.46px;
 }
 
 .hidden {
